@@ -4,7 +4,7 @@
 
 The data will be sent over REST into the Stage Display App. This enables this GUI to be used by different presentation softwares.
 
-![Screenshot](https://raw.githubusercontent.com/airbenich/presenterSoftware/master/stageDisplay/screenshot.png)
+![Image](../blob/master/stageDisplay/screenshot.png?raw=true)
 
 The main Files are:
 
