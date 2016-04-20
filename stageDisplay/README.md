@@ -4,6 +4,8 @@
 
 The data will be sent over REST into the Stage Display App. This enables this GUI to be used by different presentation softwares.
 
+![Screenshot](https://raw.githubusercontent.com/airbenich/presenterSoftware/master/stageDisplay/screenshot.png)
+
 The main Files are:
 
 - `index.html` - A web page to render.
