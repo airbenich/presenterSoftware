@@ -1,10 +1,10 @@
-# electron-quick-start
+# Stage Display
 
-**Clone and run for a quick way to see an Electron in action.**
+**A node.js App wrapped into Electron to Display informations on a stage display.**
 
-This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start) within the Electron documentation.
+The data will be sent over REST into the Stage Display App. This enables this GUI to be used by different presentation softwares.
 
-A basic Electron application needs just these files:
+The main Files are:
 
 - `index.html` - A web page to render.
 - `main.js` - Starts the app and creates a browser window to render HTML.
@@ -18,7 +18,6 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 ```bash
 # Clone this repository
-git clone https://github.com/electron/electron-quick-start
 # Go into the repository
 cd electron-quick-start
 # Install dependencies and run the app
@@ -26,5 +25,3 @@ npm install && npm start
 ```
 
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
-
-#### License [CC0 (Public Domain)](LICENSE.md)
