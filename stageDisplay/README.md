@@ -21,7 +21,7 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 ```bash
 # Clone this repository
 # Go into the repository
-cd electron-quick-start
+cd stageDisplay
 # Install dependencies and run the app
 npm install && npm start
 ```
