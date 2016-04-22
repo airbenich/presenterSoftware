@@ -4,7 +4,7 @@
 
 The data will be sent over REST into the Stage Display App. This enables this GUI to be used by different presentation softwares.
 
-![Image](../stageDisplay/screenshot.png?raw=true)
+![Image](../stage-display/screenshot.png?raw=true)
 
 The main Files are:
 
