@@ -2,7 +2,7 @@
 
 **A node.js App wrapped into Electron to Display informations on a stage display.**
 
-The data will be sent over REST into the Stage Display App. This enables this GUI to be used by different presentation softwares.
+The data will be sent over socket.io into the Stage Display App. This enables this GUI to be used by different presentation softwares.
 
 ![Image](../stage-display/screenshot.png?raw=true)
 
