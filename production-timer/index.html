@@ -19,8 +19,8 @@
   </head>
   <body>
     <div class="container text-center">
-      <h1 class="timeLeft">00:15:12</h1>
-      <small>Zeit vergangen: <span class="timeGone"></span></small><p><br>
+      <h1 id="timeLeft">00:15:12</h1>
+      <small>Zeit vergangen: <span id="timeRunning"></span></small><p><br>
       <button class="btn btn-success start"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Start</button>
       <button class="btn btn-default pause"><span class="glyphicon glyphicon-pause" aria-hidden="true"></span> Pause</button>
       <button class="btn btn-danger stop"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span> Stop</button>
@@ -31,11 +31,11 @@
         <div class="form-group">
           <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
           <div class="input-group">
-            <input type="text" class="form-control newTime" id="newTimeHours" placeholder="00" maxlength="2" autofocus="true" min="0" type="number" pattern="^\d$">
+            <input type="text" class="form-control newTime" id="newTimeHours" value="00" maxlength="2" autofocus="true" min="0" type="number" pattern="^\d+$">
             <div class="input-group-addon">h</div>
-            <input type="text" class="form-control newTime" id="newTimeMinutes" placeholder="18" maxlength="2" min="0" max="59" type="number" pattern="^[0-59]$">
+            <input type="text" class="form-control newTime" id="newTimeMinutes" value="05" maxlength="2" type="number" pattern="^[0-5]{0,1}[0-9]$">
             <div class="input-group-addon">m</div>
-            <input type="text" class="form-control newTime" id="newTimeSeconds" placeholder="44" maxlength="2" min="0" max="59" type="number" pattern="^[0-59]$">
+            <input type="text" class="form-control newTime" id="newTimeSeconds" value="00" maxlength="2" type="number" pattern="^[0-5]{0,1}[0-9]$">
             <div class="input-group-addon">s</div>
           </div>
         <button type="submit" class="btn btn-primary">Zeit übernehmen</button>

@@ -49,36 +49,3 @@ app.on('activate', function () {
     createWindow();
   }
 });
-
-
-
-
-
-
-// var CONFIG = {};
-// CONFIG.host = 'localhost';
-// CONFIG.port = 3000;
-//
-// // socket.io
-// var io = require('socket.io-client');
-// client = io.connect('http://'+CONFIG.host+':'+CONFIG.port);
-//
-// // Booting app
-// console.log('\033c'); // clear terminal
-// console.log('Starting Production Timer');
-//
-// // on connection
-// client.on('connect',function() {
-//   console.log('Successfully connected to http://'+CONFIG.host+':'+CONFIG.port);
-// });
-//
-// // on disconnect
-// client.on('disconnect', function(){
-//     console.log('Lost connection to http://'+CONFIG.host+':'+CONFIG.port);
-// });
-//
-// // recieve content from server
-// client.on('content',function(data) {
-//   console.log('Recieved data from Server:');
-//   console.log(data);
-// });
