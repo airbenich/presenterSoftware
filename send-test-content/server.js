@@ -42,6 +42,4 @@ client.on('disconnect', function(){
 
 // recieve content from server
 client.on('content',function(data) {
-  console.log('Recieved data from Server:');
-  console.log(data);
 });

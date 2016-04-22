@@ -46,9 +46,10 @@ client.on('disconnect', function(){
 // recieve content from server
 client.on('content',function(data) {
   console.log('Recieved data from Server:');
-  console.log(data);
-  if(data.type = 'mainContent') $('.mainContent').html(data.content);
-  if(data.type = 'productionTimer') {
+  if(data.type == 'mainContent') {
+    $('.mainContent').html(data.content);
+  }
+  if(data.type == 'productionTimer') {
     // console.log(new Date(data.content.initialTime));
     $('#timeLeft').html(new Date(data.content.currentTime).toLocaleTimeString().split(' ')[0]);
     $('#timeRunning').html(new Date(data.content.runningTime).toLocaleTimeString().split(' ')[0]);
