@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
-    <!-- <script src="public/js/jquery-1.11.3.min.js"></script> -->
+    <script>
+    window.nodeRequire = require;
+    delete window.require;
+    delete window.exports;
+    delete window.module;
+    </script>
+    <script src="public/js/jquery-1.11.3.min.js"></script>
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/bootstrap-theme-black.css">
     <link rel="stylesheet" href="public/css/bootstrap-vertical-grid.css" />
@@ -39,7 +45,7 @@
       <div class="row row-xs-8">
         <div class="col col-xs-12 center content">
           <div class="vertical-align">
-            <h1>Folien-Inhalt</h1>
+            <h1 class="mainContent">Folien-Inhalt</h1>
           </div>
         </div>
       </div>

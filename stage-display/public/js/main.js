@@ -30,7 +30,7 @@ window.onload = function() {
 // console.log(require('remote').getGlobal('sharedObject').someProperty);
 
 // socket.io
-var io = require('socket.io-client');
+var io = nodeRequire('socket.io-client');
 client = io.connect('http://'+CONFIG.host+':'+CONFIG.port);
 
 // on connection
@@ -43,7 +43,9 @@ client.on('disconnect', function(){
     console.log('Lost connection to http://'+CONFIG.host+':'+CONFIG.port);
 });
 
-// recive content from server
+// recieve content from server
 client.on('content',function(data) {
+  console.log('Recieved data from Server:');
   console.log(data);
+  if(data.type = 'mainContent') $('.mainContent').html(data.content);
 });
