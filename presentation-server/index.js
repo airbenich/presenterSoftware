@@ -55,9 +55,15 @@ io.on('connection', function(socket){
 
   // transfer content to all clients except self
   socket.on('content',function (data) {
+    console.log(data);
     clients.forEach(function (client) {
       if(client.id != socket.id) client.emit('content',data);
     });
+  });
+
+
+  socket.on('disconnect', function(){
+    console.log('Client disconnected');
   });
 
 });
