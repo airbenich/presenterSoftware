@@ -1,0 +1,10 @@
+.timeLeft {
+  font-size: 10em;
+  margin-top: 0.25em;
+}
+
+.newTime {
+	width:45px !important;
+	background: #222;
+	color:#fff;
+}
