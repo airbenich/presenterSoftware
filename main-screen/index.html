@@ -20,8 +20,37 @@
   <body>
     <div class="container-fixed">
 
+      <div class="row row-xs-8 application-sync">
+        <div class="col col-xs-12 center content">
+          <div class="vertical-align">
+
+            <div class="connect">
+              <h4>Connecting to</h4>
+              <small class="ipadress"></small><br><br>
+              <button class="btn btn-primary changeIpAddressAndPort">change host and port</button>
+            </div>
+
+            <div class="edit-ipaddress">
+              <h4>Change IP-Address and Port</h4>
+              <form class="form-inline" id="newConnectionData">
+                <div class="form-group">
+                  <label class="sr-only" for="exampleInputAmount">IP-Address</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control newHost" id="newHost" value="127.0.0.1" maxlength="15" autofocus="true">
+                    <div class="input-group-addon">:</div>
+                    <input type="text" class="form-control newPort" id="newPort" value="3000" type="number">
+                  </div>
+                  <button type="submit" class="btn btn-primary saveIpAddressAndPort">save</button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       <!-- Body -->
-      <div class="row row-xs-8">
+      <div class="row row-xs-8 application-online">
         <div class="col col-xs-12 center content">
           <div class="vertical-align">
             <h1 class="mainContent">Folien-Inhalt</h1>

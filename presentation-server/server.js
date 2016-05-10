@@ -45,7 +45,7 @@ http.listen(port, function(){
 
 // Authentication
 io.use(function(socket, next){
-    console.log("Query: ", socket.handshake.query);
+    // console.log("Query: ", socket.handshake.query);
     // return the result of next() to accept the connection.
     if (socket.handshake.query.authentication == "sDJZn16TuP7zu82a") {
         return next();

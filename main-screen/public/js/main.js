@@ -1,60 +1,87 @@
-var CONFIG = {};
-CONFIG.host = 'localhost';
-CONFIG.port = 3000;
+// load or initialize local Storage
+if(!localStorage.getItem('config.host')) localStorage.setItem('config.host','localhost');
+if(!localStorage.getItem('config.port')) localStorage.setItem('config.port','3000');
 
-window.onload = function() {
-  (function () {
-      function checkTime(i) {
-          return (i < 10) ? "0" + i : i;
-      }
-
-      function startTime() {
-          var today = new Date(),
-              h = checkTime(today.getHours()),
-              m = checkTime(today.getMinutes()),
-              s = checkTime(today.getSeconds());
-          document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
-          t = setTimeout(function () {
-              startTime()
-          }, 500);
-      }
-      startTime();
-  })();
-}
-
-
-// // In page 1.
-// require('remote').getGlobal('sharedObject').someProperty = 'new value';
-//
-// // In page 2.
-// console.log(require('remote').getGlobal('sharedObject').someProperty);
 
 // socket.io
 var io = nodeRequire('socket.io-client');
-client = io.connect('http://'+CONFIG.host+':'+CONFIG.port,{
-  query: "authentication=sDJZn16TuP7zu82a"
+var client;
+startWebsocket();
+
+// connection functions
+$(document).ready(function() {
+  showConnectingView();
+
+  // change ip-adress
+  $(".changeIpAddressAndPort").on('click',function( event ) {
+    event.preventDefault();
+
+    // disconnect
+    client.disconnect();
+
+    $('.application-sync .connect').hide();
+    $('.application-sync .edit-ipaddress').show ();
+
+    // get new adress
+    $('#newHost').val(localStorage.getItem('config.host'));
+    $('#newPort').val(localStorage.getItem('config.port'));
+  });
+
+  // save changes at host and port
+  $(".saveIpAddressAndPort").on('click',function( event ) {
+    event.preventDefault();
+
+    // save to local storage
+    localStorage.setItem('config.host',$('#newHost').val());
+    localStorage.setItem('config.port',$('#newPort').val());
+
+    // reload view
+    showConnectingView();
+
+    // reconnect
+    // client = io.connect('http://'+localStorage.getItem('config.host')+':'+localStorage.getItem('config.port'),{
+    //   query: "authentication=sDJZn16TuP7zu82a"
+    // });
+    startWebsocket();
+  });
 });
 
+function showConnectingView() {
+  $('.application-online').hide();
+  $('.application-sync .ipadress').html(localStorage.getItem('config.host')+':'+localStorage.getItem('config.port'));
+  $('.application-sync .connect').show();
+  $('.application-sync .edit-ipaddress').hide();
+  $('.application-sync').show();
+}
 
-// on connection
-client.on('connect',function() {
-  console.log('Successfully connected to http://'+CONFIG.host+':'+CONFIG.port);
-});
+function hideConnectingView() {
+  $('.application-sync').hide();
+  $('.application-online').show();
+}
 
-// on disconnect
-client.on('disconnect', function(){
-    console.log('Lost connection to http://'+CONFIG.host+':'+CONFIG.port);
-});
 
-// recieve content from server
-client.on('content',function(data) {
-  console.log('Recieved data from Server:');
-  if(data.type == 'mainContent') {
-    $('.mainContent').html(data.content);
-  }
-  if(data.type == 'productionTimer') {
-    // console.log(new Date(data.content.initialTime));
-    $('#timeLeft').html(new Date(data.content.currentTime).toLocaleTimeString().split(' ')[0]);
-    $('#timeRunning').html(new Date(data.content.runningTime).toLocaleTimeString().split(' ')[0]);
-  }
-});
+function startWebsocket() {
+  client = io.connect('http://'+localStorage.getItem('config.host')+':'+localStorage.getItem('config.port'),{
+    query: "authentication=sDJZn16TuP7zu82a"
+  });
+
+  // on connection
+  client.on('connect',function() {
+    console.log('Successfully connected to http://'+localStorage.getItem('config.host')+':'+localStorage.getItem('config.port'));
+    hideConnectingView();
+  });
+
+  // on disconnect
+  client.on('disconnect', function(){
+      console.log('Lost connection to http://'+localStorage.getItem('config.host')+':'+localStorage.getItem('config.port'));
+      showConnectingView();
+  });
+
+  // recieve content from server
+  client.on('content',function(data) {
+    console.log('Recieved data from Server:');
+    if(data.type == 'mainContent') {
+      $('.mainContent').html(data.content);
+    }
+  });
+}
