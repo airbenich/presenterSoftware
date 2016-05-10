@@ -18,8 +18,9 @@ var timerRunning = false;
 
 // socket.io
 var io = nodeRequire('socket.io-client');
-client = io.connect('http://'+CONFIG.host+':'+CONFIG.port);
-
+client = io.connect('http://'+CONFIG.host+':'+CONFIG.port,{
+  query: "authentication=sDJZn16TuP7zu82a"
+});
 // Booting app
 console.log('\033c'); // clear terminal
 console.log('Starting Production Timer');

@@ -43,6 +43,17 @@ http.listen(port, function(){
   });
 });
 
+// Authentication
+io.use(function(socket, next){
+    console.log("Query: ", socket.handshake.query);
+    // return the result of next() to accept the connection.
+    if (socket.handshake.query.authentication == "sDJZn16TuP7zu82a") {
+        return next();
+    }
+    // call next() with an Error if you need to reject the connection.
+    next(new Error('Authentication error'));
+});
+
 // on conncection
 io.on('connection', function(socket){
   console.log('Client connected');

@@ -34,6 +34,8 @@ var io = nodeRequire('socket.io-client');
 client = io.connect('http://'+CONFIG.host+':'+CONFIG.port,{
   query: "authentication=sDJZn16TuP7zu82a"
 });
+
+
 // on connection
 client.on('connect',function() {
   console.log('Successfully connected to http://'+CONFIG.host+':'+CONFIG.port);
